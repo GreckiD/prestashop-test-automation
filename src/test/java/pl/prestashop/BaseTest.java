@@ -37,9 +37,10 @@ public class BaseTest {
         this.actions2 = new Actions(this.driver2);
     }
 
-    //@AfterTest
-    public void closeAllDrivers() {
+    @AfterTest
+    public void closeAllDrivers() throws InterruptedException {
         if (DriverManager.getDriver() != null && DriverManager.getDriver2() != null) {
+            Thread.sleep(3000);
             DriverManager.getDriver().quit();
             DriverManager.getDriver2().quit();
         }
