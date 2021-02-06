@@ -3,7 +3,7 @@
 <suite name="AllTestSets">
     <test name="AllTestSets">
         <classes>
-            <class name="pl.prestashop.FirstTest" />
+            <class name="pl.prestashop.BuyItemTest" />
         </classes>
     </test>
 </suite>
