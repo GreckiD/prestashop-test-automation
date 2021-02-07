@@ -19,10 +19,11 @@ public class LoginPage extends BasePage {
     private By passwordInputLocator = By.name("password");
     private By submitLoginButtonLocator = By.cssSelector("button#submit-login");
 
-    public void logIn(String email, String password) {
+    public UserAccountPage logIn(String email, String password) {
         actions.moveToElement(driver.findElement(emailInputLocator)).click().sendKeys(email).build().perform();
         actions.moveToElement(driver.findElement(passwordInputLocator)).click().sendKeys(password).build().perform();
         actions.moveToElement(driver.findElement(submitLoginButtonLocator)).click().build().perform();
+        return new UserAccountPage(driver, actions);
     }
 
 }
