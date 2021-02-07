@@ -16,7 +16,6 @@ public class HomePage extends BasePage {
     }
 
     private By homePage = By.id("index");
-    private By productNameLocator = By.cssSelector("article.product-miniature h3.product-title a");
 
     public ProductPage openProductPage(String productName) {
         try {
