@@ -12,4 +12,13 @@ public class BasePage {
         this.driver = driver;
         this.actions = actions;
     }
+
+    public void wait(int milliSeconds) {
+        try {
+            Thread.sleep(milliSeconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
