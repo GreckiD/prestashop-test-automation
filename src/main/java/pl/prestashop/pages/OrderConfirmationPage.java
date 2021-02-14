@@ -15,5 +15,12 @@ public class OrderConfirmationPage extends BasePage {
     }
 
     private By orderConfirmationPage = By.cssSelector("body#order-confirmation");
+    private By orderIdentifierLocator = By.cssSelector("#order-details ul li:first-child");
+
+    public String getOrderIdentifier() {
+        String orderDetails = driver.findElement(orderIdentifierLocator).getText();
+        String orderIdentifier = orderDetails.replace("Numer zamówienia: ", "");
+        return orderIdentifier;
+    }
 
 }

@@ -19,20 +19,20 @@ public class BaseTest {
 
 
     @BeforeMethod
-    public void startDriver(){
+    public void startDriver() {
         WebDriver driver = DriverFactory.getDriver();
         DriverManager.setWebDriver(driver);
         this.driver = DriverManager.getDriver();
         this.driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-        this.driver.manage().window().setSize(new Dimension(1920,1080));
+        this.driver.manage().window().setSize(new Dimension(1920, 1080));
         this.actions = new Actions(this.driver);
     }
 
-    public void startSecondDriver(){
+    public void startSecondDriver() {
         WebDriver driver = DriverFactory.getDriver();
         DriverManager.setWebDriver2(driver);
         this.driver2 = DriverManager.getDriver2();
-        this.driver2.manage().window().setSize(new Dimension(1920,1080));
+        this.driver2.manage().window().setSize(new Dimension(1920, 1080));
         this.driver2.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
         this.actions2 = new Actions(this.driver2);
     }
