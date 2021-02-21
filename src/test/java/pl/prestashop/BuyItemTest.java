@@ -1,12 +1,16 @@
 package pl.prestashop;
 
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pl.prestashop.Listeners.ListenerManager;
 import pl.prestashop.database.JDBCConnector;
 import pl.prestashop.pages.OrderConfirmationPage;
 import pl.prestashop.pages.parts.*;
 
 import static pl.prestashop.config.BuildConfiguration.getTestData;
+
+@Listeners(ListenerManager.class)
 
 public class BuyItemTest extends BaseTest {
 
@@ -30,6 +34,7 @@ public class BuyItemTest extends BaseTest {
 
     @AfterMethod
     public void cleanUpAfterTest() {
+        System.out.println("Start CleanUp!");
         JDBCConnector jdbcConnector = new JDBCConnector();
         jdbcConnector.deleteOrder(orderIdentifier);
     }

@@ -8,9 +8,9 @@ import static pl.prestashop.config.BuildConfiguration.getTestData;
 
 public class JDBCConnector {
 
-    private final String dbHost = getTestData("dbHost");
-    private final String dbUser = getTestData("dbUser");
-    private final String dbPassword = getTestData("dbPassword");
+    private String dbHost = getTestData("dbHost");
+    private String dbUser = getTestData("dbUser");
+    private String dbPassword = getTestData("dbPassword");
 
     public Connection connectToDataBase() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
