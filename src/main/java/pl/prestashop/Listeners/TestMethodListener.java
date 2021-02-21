@@ -3,8 +3,9 @@ package pl.prestashop.Listeners;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import pl.prestashop.driver.DriverManager;
 
-public class ListenerManager implements ITestListener {
+public class TestMethodListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -14,12 +15,19 @@ public class ListenerManager implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        System.out.println("SUCCESS!");
+        System.out.println("Test result: SUCCESS!");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("FAILED!");
+        ScreenshotFactory screenshotFactory = new ScreenshotFactory();
+        if (DriverManager.getDriver() != null) {
+            screenshotFactory.getScreenshot(DriverManager.getDriver(), result.getName());
+        }
+        if (DriverManager.getDriver2() != null) {
+            screenshotFactory.getScreenshot(DriverManager.getDriver2(), result.getName());
+        }
+        System.out.println("Test result: FAILED!");
     }
 
     @Override
