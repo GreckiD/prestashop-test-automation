@@ -1,3 +1,4 @@
 target/*
 src/test/resources/properties/*
 .idea
+.prestashop-test-automation.iml
