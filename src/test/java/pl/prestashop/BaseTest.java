@@ -17,7 +17,6 @@ public class BaseTest {
     protected Actions actions;
     protected Actions actions2;
 
-
     @BeforeMethod
     public void startDriver() {
         WebDriver driver = DriverFactory.getDriver();
@@ -39,9 +38,11 @@ public class BaseTest {
 
     @AfterTest
     public void closeAllDrivers() throws InterruptedException {
-        if (DriverManager.getDriver() != null && DriverManager.getDriver2() != null) {
-            Thread.sleep(3000);
+        Thread.sleep(3000);
+        if (DriverManager.getDriver() != null) {
             DriverManager.getDriver().quit();
+        }
+        if (DriverManager.getDriver2() != null) {
             DriverManager.getDriver2().quit();
         }
     }
