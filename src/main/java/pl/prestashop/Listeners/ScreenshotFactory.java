@@ -12,7 +12,7 @@ import java.time.LocalTime;
 
 public class ScreenshotFactory {
 
-    public void getScreenshot(WebDriver driver, String testName) {
+    public void takeScreenshot(WebDriver driver, String testName) {
         LocalDate date = LocalDate.now();
         LocalTime time = LocalTime.now();
         String screenshotPath = "target/surefire-reports/screenshots/" + testName + "-" + date + "-" + time;
@@ -20,8 +20,7 @@ public class ScreenshotFactory {
             File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             FileHandler.copy(scrFile, new File(screenshotPath));
             System.out.println("Screenshot: " + screenshotPath);
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
