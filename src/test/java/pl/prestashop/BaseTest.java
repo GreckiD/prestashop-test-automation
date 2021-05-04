@@ -21,7 +21,7 @@ public class BaseTest {
     public void startDriver() {
         WebDriver driver = DriverFactory.getDriver();
         DriverManager.setWebDriver(driver);
-        this.driver = DriverManager.getDriver();
+        this.driver = DriverManager.getWebDriver();
         this.driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
         this.driver.manage().window().setSize(new Dimension(1920, 1080));
         this.actions = new Actions(this.driver);
@@ -30,7 +30,7 @@ public class BaseTest {
     public void startSecondDriver() {
         WebDriver driver = DriverFactory.getDriver();
         DriverManager.setWebDriver2(driver);
-        this.driver2 = DriverManager.getDriver2();
+        this.driver2 = DriverManager.getWebDriver2();
         this.driver2.manage().window().setSize(new Dimension(1920, 1080));
         this.driver2.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
         this.actions2 = new Actions(this.driver2);
@@ -39,11 +39,11 @@ public class BaseTest {
     @AfterTest
     public void closeAllDrivers() throws InterruptedException {
         Thread.sleep(3000);
-        if (DriverManager.getDriver() != null) {
-            DriverManager.getDriver().quit();
+        if (DriverManager.getWebDriver() != null) {
+            DriverManager.getWebDriver().quit();
         }
-        if (DriverManager.getDriver2() != null) {
-            DriverManager.getDriver2().quit();
+        if (DriverManager.getWebDriver2() != null) {
+            DriverManager.getWebDriver2().quit();
         }
     }
 }

@@ -7,11 +7,11 @@ public class DriverManager {
     private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<WebDriver>();
     private static ThreadLocal<WebDriver> webDriver2 = new ThreadLocal<WebDriver>();
 
-    public static WebDriver getDriver() {
+    public static WebDriver getWebDriver() {
         return webDriver.get();
     }
 
-    public static WebDriver getDriver2() {
+    public static WebDriver getWebDriver2() {
         return webDriver2.get();
     }
 

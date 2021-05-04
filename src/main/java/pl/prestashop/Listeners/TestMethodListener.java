@@ -1,6 +1,5 @@
 package pl.prestashop.Listeners;
 
-import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import pl.prestashop.driver.DriverManager;
@@ -21,37 +20,13 @@ public class TestMethodListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ScreenshotFactory screenshotFactory = new ScreenshotFactory();
-        if (DriverManager.getDriver() != null) {
-            screenshotFactory.getScreenshot(DriverManager.getDriver(), result.getName());
+        if (DriverManager.getWebDriver() != null) {
+            screenshotFactory.takeScreenshot(DriverManager.getWebDriver(), result.getName());
         }
-        if (DriverManager.getDriver2() != null) {
-            screenshotFactory.getScreenshot(DriverManager.getDriver2(), result.getName());
+        if (DriverManager.getWebDriver2() != null) {
+            screenshotFactory.takeScreenshot(DriverManager.getWebDriver2(), result.getName());
         }
         System.out.println("Test result: FAILED!");
     }
 
-    @Override
-    public void onTestSkipped(ITestResult result) {
-
-    }
-
-    @Override
-    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-
-    }
-
-    @Override
-    public void onTestFailedWithTimeout(ITestResult result) {
-
-    }
-
-    @Override
-    public void onStart(ITestContext context) {
-
-    }
-
-    @Override
-    public void onFinish(ITestContext context) {
-
-    }
 }
